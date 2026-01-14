@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mellisa Z. Mabeza | AI & Software Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #0a0a0f;
+            --dark-gray: #1a1a2e;
+            --medium-gray: #2d2d44;
+            --light-gray: #4a4a6a;
+            --purple: #8a2be2;
+            --purple-light: #9d4edd;
+            --purple-dark: #6a0dad;
+            --accent: #ff6b9d;
+            --text-light: #e2e2f0;
+            --text-dark: #b8b8d1;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--text-light);
+            background-color: var(--black);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--purple-light);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: white;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--purple);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(135deg, var(--black) 0%, var(--dark-gray) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--purple-dark) 0%, transparent 70%);
+            opacity: 0.2;
+        }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .hero-text h1 .gradient-text {
+            background: linear-gradient(90deg, var(--purple), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+        
+        .hero-text h2 {
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+        
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+        }
+        
+        .highlight {
+            color: var(--purple-light);
+            font-weight: 600;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 0.9rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, var(--purple), var(--purple-dark));
+            color: white;
+            border: none;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(138, 43, 226, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--medium-gray);
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--purple);
+            color: var(--purple-light);
+        }
+        
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--purple);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-dark);
+        }
+        
+        .hero-image {
+            text-align: center;
+            position: relative;
+        }
+        
+        .code-container {
+            background: var(--dark-gray);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid var(--medium-gray);
+            text-align: left;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .code-line {
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+        
+        .code-comment {
+            color: var(--light-gray);
+        }
+        
+        .code-keyword {
+            color: var(--purple-light);
+        }
+        
+        .code-string {
+            color: var(--accent);
+        }
+        
+        /* Sections Common */
+        section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            margin-bottom: 3.5rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--purple);
+            margin-top: 0.5rem;
+        }
+        
+        .section-title p {
+            color: var(--text-dark);
+            max-width: 600px;
+        }
+        
+        /* About Section */
+        .about {
+            background: var(--dark-gray);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+        }
+        
+        .about-text h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .about-text p {
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+        }
+        
+        .education-item {
+            background: var(--medium-gray);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--purple);
+        }
+        
+        .education-item h4 {
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+        
+        .education-item .date {
+            color: var(--purple-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Skills Section */
+        .skills {
+            background: var(--black);
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .skill-category {
+            background: var(--dark-gray);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid var(--medium-gray);
+            transition: transform 0.3s;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+            border-color: var(--purple);
+        }
+        
+        .skill-category h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+        
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+        
+        .skill-tag {
+            background: var(--medium-gray);
+            color: var(--text-light);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+        
+        .skill-tag:hover {
+            background: var(--purple);
+            color: white;
+        }
+        
+        /* Projects Section */
+        .projects {
+            background: var(--dark-gray);
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .project-card {
+            background: var(--medium-gray);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid var(--light-gray);
+            transition: all 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--purple);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .project-header {
+            padding: 1.5rem 1.5rem 0;
+        }
+        
+        .project-type {
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            background: var(--purple-dark);
+            color: white;
+        }
+        
+        .project-img {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, var(--black), var(--purple-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-content h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .project-content p {
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .tech-tag {
+            background: var(--dark-gray);
+            color: var(--text-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        /* Experience Section */
+        .experience {
+            background: var(--black);
+        }
+        
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: var(--purple);
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .timeline-date {
+            width: 80px;
+            padding-right: 2rem;
+            text-align: right;
+            font-weight: 600;
+            color: var(--purple);
+        }
+        
+        .timeline-content {
+            flex: 1;
+            padding: 1.5rem;
+            background: var(--dark-gray);
+            border-radius: 10px;
+            margin-left: 2rem;
+            border: 1px solid var(--medium-gray);
+        }
+        
+        .timeline-content h3 {
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+        
+        .company {
+            color: var(--purple-light);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        
+        .timeline-content ul {
+            padding-left: 1.5rem;
+            color: var(--text-dark);
+        }
+        
+        .timeline-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: var(--dark-gray);
+        }
+        
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .contact-form {
+            margin-top: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            text-align: left;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--medium-gray);
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            background: var(--black);
+            color: var(--text-light);
+            transition: border 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--purple);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--black);
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid var(--medium-gray);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .social-links a {
+            color: var(--text-dark);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--purple);
+        }
+        
+        .copyright {
+            color: var(--light-gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--dark-gray);
+                flex-direction: column;
+                padding: 1rem;
+                border-top: 1px solid var(--medium-gray);
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-stats {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-date {
+                width: 60px;
+                padding-right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="logo">Melissa<span>ZM</span></a>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Mellisa Z. <span class="gradient-text">Mabeza</span></h1>
+                    <h2>AI Engineer & Software Developer</h2>
+                    <p>
+                        Computer Engineering graduate specializing in <span class="highlight">Machine Learning</span>, 
+                        <span class="highlight">Backend Development</span>, and <span class="highlight">Data Science</span>. 
+                        Passionate about building intelligent systems and scalable applications.
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="#projects" class="btn btn-primary">
+                            <i class="fas fa-code"></i> View Projects
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <i class="fas fa-envelope"></i> Contact Me
+                        </a>
+                        <a href="Mellisa_Z_Mabeza_CV.pdf" download class="btn btn-secondary">
+                            <i class="fas fa-download"></i> Download CV
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">2+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Projects</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">3</span>
+                            <span class="stat-label">Certifications</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="code-container">
+                        <div class="code-line"><span class="code-keyword">class</span> <span class="code-string">Mellisa</span>:</div>
+                        <div class="code-line">&nbsp;&nbsp;<span class="code-keyword">def</span> <span class="code-string">__init__</span>(self):</div>
+                        <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;self.skills = [<span class="code-string">"AI/ML"</span>, <span class="code-string">"Computer Engineer"</span>, <span class="code-string">"Data Science"</span>]</div>
+                        <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;self.education = <span class="code-string">"BSc Computer Engineering"</span></div>
+                        <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;self.experience = <span class="code-string">"2+ years"</span></div>
+                        <div class="code-line"><span class="code-comment"># Building the future with code & algorithms</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+                <p>Achievement-driven professional specializing in AI, software development, and data analytics</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Computer Engineer & AI Specialist</h3>
+                    <p>
+                        I am a Computer Engineering graduate with a 2.1 Classification from the University of Zimbabwe, 
+        
+                    </p>
+                    <p>
+                        I thrive on intellectual challenges and specialize in building machine learning models, 
+                        developing interactive dashboards in Power BI, and creating robust software solutions. 
+                        My approach combines technical expertise with strategic thinking to deliver sustainable value.
+                    </p>
+                </div>
+                <div class="education">
+                    <div class="education-item">
+                        <h4>BSc Computer Engineering</h4>
+                        <div class="date">2020 - 2024</div>
+                        <p>University of Zimbabwe</p>
+                        <p><strong>Classification:</strong> 2.1</p>
+                    </div>
+                    <div class="education-item">
+                        <h4>AI & Machine Learning Certificate</h4>
+                        <div class="date">Jan - Apr 2025</div>
+                        <p>AFRICA AGILITY Foundation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>Technical Skills</h2>
+                <p>Technologies and tools I work with</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-brain"></i> AI & Machine Learning</h3>
+                    <div class="skill-items">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">scikit-learn</span>
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">Google Colab</span>
+                        <span class="skill-tag">Jupyter</span>
+                        <span class="skill-tag">ML Models</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Software Development</h3>
+                    <div class="skill-items">
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Django</span>
+                        <span class="skill-tag">REST API</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Docker</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-chart-bar"></i> Data & Analytics</h3>
+                    <div class="skill-items">
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">Matplotlib</span>
+                        <span class="skill-tag">Data Visualization</span>
+                        <span class="skill-tag">Azure</span>
+                        <span class="skill-tag">Data Analysis</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Dashboard Design</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Projects</h2>
+                <p>Real-world applications of my skills</p>
+            </div>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-type">AI/ML Project</span>
+                    </div>
+                    <div class="project-img">
+                        <i class="fas fa-chart-line" style="font-size: 4rem;"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Loan Prediction Model</h3>
+                        <p>
+                            Machine learning model that predicts loan approval with 80% accuracy. 
+                            Built using decision tree algorithms with comprehensive data preprocessing 
+                            and feature engineering.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">scikit-learn</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">Data Cleaning</span>
+                            <span class="tech-tag">Decision Trees</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/mellisazm/loan-prediction" target="_blank" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                            <a href="https://colab.research.google.com/drive/your-colab-link" target="_blank" class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">
+                                <i class="fas fa-external-link-alt"></i> Colab Notebook
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-type">Backend System</span>
+                    </div>
+                    <div class="project-img">
+                        <i class="fas fa-bus" style="font-size: 4rem;"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>SmartTransport Ticketing</h3>
+                        <p>
+                            Weather-aware bus ticketing system with dynamic pricing. Features REST API, 
+                            WeatherAPI integration, PDF generation, and MySQL database management.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Express</span>
+                            <span class="tech-tag">REST API</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">PDF Generation</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/mellisazm/smarttransport" target="_blank" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                            <a href="#" class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-type">Enterprise System</span>
+                    </div>
+                    <div class="project-img">
+                        <i class="fas fa-building" style="font-size: 4rem;"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>ERP System</h3>
+                        <p>
+                            Enterprise Resource Planning system developed with Django. Features 
+                            role-based access control, authentication systems, and comprehensive testing.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Django</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Authentication</span>
+                            <span class="tech-tag">RBAC</span>
+                            <span class="tech-tag">Testing</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/mellisazm/erp-system" target="_blank" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Work Experience</h2>
+                <p>Professional journey and contributions</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Feb 2024</div>
+                    <div class="timeline-content">
+                        <h3>User Support Volunteer</h3>
+                        <p class="company">Jairos Jiri Association</p>
+                        <ul>
+                            <li>Drafted professional emails for donation requests and acknowledgments</li>
+                            <li>Strengthened communication with donors and stakeholders</li>
+                            <li>Managed and maintained computer networks and devices</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2022-2023</div>
+                    <div class="timeline-content">
+                        <h3>ICT Intern</h3>
+                        <p class="company">University of Zimbabwe</p>
+                        <ul>
+                            <li>Developed and tested Enterprise Resource Planning system using Django</li>
+                            <li>Created role-based access controls and authentication measures</li>
+                            <li>Conducted integration and black-box testing</li>
+                            <li>Supported staff and students with hardware/software troubleshooting</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Mar 2022</div>
+                    <div class="timeline-content">
+                        <h3>ICT Tech Support</h3>
+                        <p class="company">City Council of Bulawayo</p>
+                        <ul>
+                            <li>Provided hardware and software support to staff</li>
+                            <li>Maintained computer networks including VoIP phone systems</li>
+                            <li>Designed and tested interactive website</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="section-title">
+                    <h2>Get In Touch</h2>
+                    <p>Let's connect and discuss opportunities</p>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="you@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" placeholder="Your message here..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h3 style="color: white; margin-bottom: 1rem;">Mellisa Z. Mabeza</h3>
+            <p style="color: var(--text-dark); margin-bottom: 2rem;">AI Engineer & Software Developer</p>
+            <div class="social-links">
+                <a href="https://github.com/mellisazm" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/mellisazm" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://twitter.com/mellisazm" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="mailto:mellisa.mabeza@example.com"><i class="fas fa-envelope"></i></a>
+            </div>
+            <div style="margin: 2rem 0;">
+                <p style="color: var(--text-dark); margin-bottom: 0.5rem;">References Available Upon Request</p>
+                <p style="color: var(--light-gray); font-size: 0.9rem;">
+                    Mrs A. Mukwazvure | +263 777 740 504 | amukwazvure@ceic.uz.ac.zw<br>
+                    Mr. S. Zvakafa | +263 774 322 606 | szvakafa@ceic.uz.ac.zw
+                </p>
+            </div>
+            <p class="copyright">
+                &copy; 2025 Melissa Z. Mabeza. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    document.querySelector('.nav-links').style.display = 'none';
+                }
+            });
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+
+        // Update copyright year
+        document.querySelector('.copyright').innerHTML = `&copy; ${new Date().getFullYear()} Mellisa Z. Mabeza. All rights reserved.`;
+    </script>
+</body>
+</html>
